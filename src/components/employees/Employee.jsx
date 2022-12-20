@@ -34,7 +34,7 @@ function Employee({ data }) {
       <td>
         <div>
           <span>
-            Appointment This month:{" "}
+            Appointment last month:{" "}
             <strong>{data.total_appointments_completed}</strong>{" "}
           </span>
           <span>

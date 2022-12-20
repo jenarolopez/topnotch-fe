@@ -36,6 +36,11 @@ function AppointmentInfo({ data, setData, setLoading }) {
     response: false
   })
 
+  const [deleteModal, setDeleteModal] = useState({
+    isOpen: false,
+    response: false
+  })
+
   const [returnPolicy, setReturnPolicy] = useState({
     isOpen: false,
     response: false
@@ -54,9 +59,22 @@ function AppointmentInfo({ data, setData, setLoading }) {
         status: body.value,
         reason
       })
+      setOpenItem({
+        isOpen: false,
+        response: false
+      })
     }
   },[openItem.response])
 
+  useEffect(()=>{
+    if(deleteModal.response) {
+      deleteAppointment()
+      setDeleteModal({
+        isOpen: false,
+        response: false
+      })
+    }
+  },[deleteModal.response])
 
   const confirmAppointment = (response) => {
     setOpenItem({
@@ -71,6 +89,13 @@ function AppointmentInfo({ data, setData, setLoading }) {
 
 const showReturnPolicy = () => {
   setReturnPolicy({
+    isOpen: true,
+    response: false
+  })
+}
+
+const confirmDelete = () => {
+  setDeleteModal({
     isOpen: true,
     response: false
   })
@@ -105,6 +130,10 @@ const showReturnPolicy = () => {
         input={
           body.value == 'rejected' ? <textarea onChange={(e)=>{setReason(e.target.value.trim())}} placeholder="Why do you want to cancel this appointment?"/> : false 
         }
+        />
+      }
+      {
+        deleteModal.isOpen && <ConfirmModal openItem={deleteModal} setOpenItem={setDeleteModal} body={'Are you sure you want to delete this appointment?'} 
         />
       }
       {
@@ -262,21 +291,21 @@ const showReturnPolicy = () => {
         {
             !pathname?.includes("/customer/schedules/") && appointment?.status === 'completed' &&
             (<InfoRow style={{ justifyContent: "center" }}>
-            <button className="reject" onClick={deleteAppointment}>delete</button>
+            <button className="reject" onClick={confirmDelete}>delete</button>
           </InfoRow>)
         }
 
         {
             appointment?.status === 'rejected' &&
             (<InfoRow style={{ justifyContent: "center" }}>
-            <button className="reject" onClick={deleteAppointment}>delete</button>
+            <button className="reject" onClick={confirmDelete}>delete</button>
           </InfoRow>)
         }
 
         {
             !pathname?.includes("/customer/schedules/") && appointment?.status === 'cancelled' &&
             (<InfoRow style={{ justifyContent: "center" }}>
-            <button className="reject" onClick={deleteAppointment}>delete</button>
+            <button className="reject" onClick={confirmDelete}>delete</button>
           </InfoRow>)
         }
 
