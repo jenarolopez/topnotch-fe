@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
             }
             
             if(METHOD.toUpperCase() == 'GET') {
-                const res = await axios.get(`${process.env.REACT_APP_SERVER_URI_PROD}${uri}`, {
+                const res = await axios.get(`${"https://topnotchbackend.herokuapp.com"}${uri}`, {
                     headers: {
                         userinfo:Cookies.get('userToken')
                     }
@@ -18,7 +18,7 @@ import Cookies from "js-cookie";
             }
     
             else if (METHOD.toUpperCase() == 'POST' && values) {
-                const res = await axios.post(`${process.env.REACT_APP_SERVER_URI_PROD}${uri}`, {values}, {
+                const res = await axios.post(`${"https://topnotchbackend.herokuapp.com"}${uri}`, {values}, {
                     headers: {
                         userinfo:Cookies.get('userToken')
                     }, 
@@ -29,7 +29,7 @@ import Cookies from "js-cookie";
             }
     
             else if (METHOD.toUpperCase() == 'PATCH' || METHOD.toUpperCase() == 'PUT' && values) {
-                const res = await axios.patch(`${process.env.REACT_APP_SERVER_URI_PROD}${uri}`,{values}, {
+                const res = await axios.patch(`${"https://topnotchbackend.herokuapp.com"}${uri}`,{values}, {
                     headers: {
                         userinfo:Cookies.get('userToken')
                     }
@@ -38,7 +38,7 @@ import Cookies from "js-cookie";
                 return res.data;
             } 
             else if (METHOD.toUpperCase() == 'DELETE') {
-                const res = await axios.delete(`${process.env.REACT_APP_SERVER_URI_PROD}${uri}`, {
+                const res = await axios.delete(`${"https://topnotchbackend.herokuapp.com"}${uri}`, {
                     headers: {
                         userinfo:Cookies.get('userToken')
                     }

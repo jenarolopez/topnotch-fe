@@ -90,7 +90,7 @@ function App() {
       isAuth: false,
     };
 
-    dispatch(connection(io(process.env.REACT_APP_SERVER_URI_PROD, { auth })));
+    dispatch(connection(io("https://topnotchbackend.herokuapp.com", { auth })));
   }, []);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function App() {
             };
 
             dispatch(
-              connection(io(process.env.REACT_APP_SERVER_URI_PROD, { auth }))
+              connection(io("https://topnotchbackend.herokuapp.com", { auth }))
             );
           }
         } catch (error) {

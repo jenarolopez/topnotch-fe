@@ -65,7 +65,7 @@ function Logic({email, setEmail, code, setCode, toast}) {
 
     const onSubmit = async (values) => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_SERVER_URI_PROD}/api/public/updatePassword`, values, {
+            const res = await axios.post(`${"https://topnotchbackend.herokuapp.com"}/api/public/updatePassword`, values, {
                 headers: {
                     userinfo: Cookies.get('reset_token')
                 }

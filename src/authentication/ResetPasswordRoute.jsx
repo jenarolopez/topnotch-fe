@@ -14,7 +14,7 @@ import { useState } from "react";
       try {
         setLoading(true)
         const res = await axios.get(
-          `${process.env.REACT_APP_SERVER_URI_PROD}/api/auth`,
+          `${"https://topnotchbackend.herokuapp.com"}/api/auth`,
           {
             headers: {
               userinfo: Cookies.get("reset_token"),
