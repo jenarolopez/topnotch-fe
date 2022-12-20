@@ -283,7 +283,7 @@ text-transform: capitalize;
       background: rgb(255, 207, 67);
     }
     &.rejected {
-      background: maroon;
+      background: orange;
     }
     &.cancelled {
       background: maroon;

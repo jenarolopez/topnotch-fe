@@ -22,7 +22,7 @@ function AppointmentData({ data }) {
       <T_Data className="table__time">{data?.date_n_time.time}</T_Data>
       <T_Data className="table__service">{data.appointment_type}</T_Data>
       <T_Data className="table__status">
-        <span className={data.status}>{data.status}</span>
+        <span className={data.status}>{data.status == 'rejected' ? 'Re-scheduled' : data.status}</span>
       </T_Data>
     </TableData>
   );
