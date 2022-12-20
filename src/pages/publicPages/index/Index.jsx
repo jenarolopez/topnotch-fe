@@ -140,6 +140,11 @@ function Index() {
       )}
     </FeedbackSection>
   );
+
+  const currentMonth = new Date().getMonth() - 1;
+
+  const computedMonth = currentMonth < 0 ? 11 : currentMonth 
+
   return (
     <IndexPageContainer>
       <CarouselSlider>
@@ -296,7 +301,7 @@ function Index() {
             </TeamContent>
             <Content>
               <h1>
-                Employees of the month <i class="fa-solid fa-award"></i> ({labels[new Date().getMonth() - 1]}{" "}
+                Employees of the month <i class="fa-solid fa-award"></i> ({labels[computedMonth]}{" "}
                 {new Date().getFullYear()}) 
               </h1>
               <p>
