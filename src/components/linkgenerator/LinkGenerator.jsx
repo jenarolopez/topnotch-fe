@@ -3,7 +3,7 @@ import { LinkInput, LinkGeneratorContainer, Notify} from "./components";
 function LinkGenerator({ linkId, setLinkId }) {
   
   const [isClicked, setIsClicked] = useState(false);
-  const streamUrl = `http://localhost:3000/public/liveStreamChannels?redirect=${linkId}`;
+  const streamUrl = `https://topnotch-sigma.vercel.app/public/liveStreamChannels?redirect=${linkId}`;
 
   const clickCopyClip = () => {
     setIsClicked(true);
