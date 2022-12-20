@@ -42,7 +42,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-update-deploy": "react-scripts build && git add . && git commit -m 'updating' && git push && firebase deploy",
+    "build-update-deploy": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
