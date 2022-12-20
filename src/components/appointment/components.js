@@ -55,6 +55,10 @@ export const Info = styled.div`
   flex: 1;
   margin-inline: 10px;
 
+  & .yellow {
+    color: orange
+  }
+
   @media (max-width:615px) {
     margin-block: 10px;
   }

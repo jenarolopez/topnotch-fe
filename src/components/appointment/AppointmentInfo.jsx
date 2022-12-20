@@ -197,13 +197,13 @@ const showReturnPolicy = () => {
       <InfoRow>
         <Info status={`${appointment?.status}`}>
           <h4>Status</h4>
-          <p>{appointment?.status}</p>
+          <p className={`${appointment?.status == 'rejected' ? 'yellow' : ''}`}>{appointment?.status != 'rejected' ? appointment?.status : 'Re-schedule'}</p>
         </Info>
       </InfoRow>
 
       {appointment?.status == "rejected" && <InfoRow>
         <Info status={`${appointment?.status}`}>
-          <h4>Reason for rejection</h4>
+          <h4>Reason for re-schedule</h4>
           <p>{appointment?.reason}</p>
         </Info>
       </InfoRow>}
