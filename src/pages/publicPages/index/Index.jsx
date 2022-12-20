@@ -296,7 +296,7 @@ function Index() {
             </TeamContent>
             <Content>
               <h1>
-                Employees of the month <i class="fa-solid fa-award"></i> ({labels[11]}{" "}
+                Employees of the month <i class="fa-solid fa-award"></i> ({labels[new Date().getMonth() - 1]}{" "}
                 {new Date().getFullYear()}) 
               </h1>
               <p>
